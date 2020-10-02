@@ -1,5 +1,6 @@
-import { Console } from "console";
-import React from "react";
+import React, { useContext } from "react";
+import { TaskContext } from "../contexts/TaskContext";
+import { TaskContextType } from "../contexts/TaskContextType";
 import { Task } from "../models/Task";
 
 // Interface que possibilitará a tipagem do 'props' do Componente.
@@ -8,12 +9,15 @@ interface TaskListItemProps {
 }
 
 const TaskListItem = (props: TaskListItemProps) => {
+  // Hook para fazer com que o component utilize as propriedades e métodos de algum contexto.
+  const { removeTask, toggle } = useContext<TaskContextType>(TaskContext);
+
   const handleChange = (event: any) => {
-    console.log("mudou");
+    toggle(props.task);
   };
 
   const onRemove = (task: Task) => {
-    console.log(task);
+    removeTask(task);
   };
 
   return (

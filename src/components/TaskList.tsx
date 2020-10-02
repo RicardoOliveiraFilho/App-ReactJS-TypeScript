@@ -1,12 +1,11 @@
-import React from "react";
-import { Task } from "../models/Task";
+import React, { useContext } from "react";
+import { TaskContext } from "../contexts/TaskContext";
+import { TaskContextType } from "../contexts/TaskContextType";
 import TaskListItem from "./TaskListItem";
 
 const TaskList = () => {
-  const tasks: Task[] = [
-    { id: 1, title: "Ir ao Supermercado", done: true },
-    { id: 2, title: "Ir a Academia", done: false },
-  ];
+  // Hook para fazer com que o component utilize as propriedades e métodos de algum contexto.
+  const { tasks } = useContext<TaskContextType>(TaskContext);
 
   return (
     <table className="uk-table">
