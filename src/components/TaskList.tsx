@@ -9,7 +9,6 @@ const TaskList = () => {
 
   return (
     <table className="uk-table">
-      <caption>Lista de Tarefas</caption>
       <thead>
         <tr>
           <th>#</th>
